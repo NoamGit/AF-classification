@@ -10,6 +10,7 @@ for k = 1:N
     ecg = {ecg};tm = {reshape(tm,[],1)};siginfo = {siginfo};
     tbl_itr = table(tm,ecg,fs,siginfo,'RowNames',{record_name});
     tbl_out = [tbl_out; tbl_itr];
+    if(~mod(k,1e3)); disp(['finished ',num2str(k),' files!']);end;
 end
 
 end

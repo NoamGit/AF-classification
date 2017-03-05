@@ -1,0 +1,17 @@
+classdef FeatureGenerator
+    % FeatureGenerator class; creates features and provides segments from current signal
+    
+    properties
+        feature_names
+    end
+    
+    methods
+        function [obj] = FeatureGenerator(feat_names_)
+            obj.feature_names = feat_names_;
+        end
+        
+        [] = generateData()
+    end
+    
+end
+

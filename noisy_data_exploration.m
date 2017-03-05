@@ -9,7 +9,7 @@ rng(373737);
 
 currFolder = pwd;
 addpath(genpath(currFolder)); % add all to path
-cpath = fullfile(currFolder,'data\training2017\');
+cpath = fullfile(currFolder,'data/training2017/');
 indx_tbl = readtable([cpath,'REFERENCE.csv'],'ReadVariableNames',false); 
 tbl_ind_noise = indx_tbl(cell2mat(indx_tbl.Var2) == '~',:);
 tbl_ind_ok = indx_tbl(cell2mat(indx_tbl.Var2) ~= '~',:);
@@ -36,5 +36,9 @@ figure(2);plotSignal( tbl_ok, randi(N_ok,1));
 % network on every 5 sec segment of the data and use the median prediction
 % as the signal class
 
+%% test iterator
+
+train_iterator = DataIterator( cpath );
+[train_iterator ,sig] = train_iterator.nextFile();disp(sig)
 
 

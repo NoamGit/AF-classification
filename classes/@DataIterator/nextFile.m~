@@ -1,0 +1,7 @@
+function [signal_out] = nextFile()
+    filename = fullfile(obj.path_,obj.current_file_.name);
+    [tm,ecg,fs,siginfo]=rdmat(filename);
+    ecg = {ecg};tm = {reshape(tm,[],1)};siginfo = {siginfo};
+    signal_out = table(tm,ecg,fs,siginfo,'RowNames',{record_name});
+    find( obj.current_file_(:) , obj.file_list_(:))
+end
